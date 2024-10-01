@@ -1,0 +1,83 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--  How to run all test cases in on class without    -->
+<!--
+<suite name="Devbook Automation" verbose="1">
+    <test name="smoke test">
+        <classes>
+            <class name="src.test.
+            java.AutomationExerciseTestNG.Test.LoginTest">
+                <methods>
+                    <exclude name="loginTest"></exclude>
+                    <exclude name="loginTest2"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+        <!--  How to run specific test in the class    -->
+        <!--
+        <suite name="Devbook Automation" verbose="10">
+            <test name="smoke test">
+                <classes>
+                    <class name="com.devbook.test.day16_POM2.BrowserUtilsTest">
+                        <methods>
+                            <include name="t61_window"></include>
+                            <include name="t63_list"></include>
+                        </methods>
+                    </class>
+                </classes>
+            </test>
+        </suite>
+        -->
+        <!--  How to run specific class    -->
+        <!--
+        <suite name="Devbook Automation" verbose="1">
+            <test name="smoke test">
+                <classes>
+                    <class name="com.devbook.test.day14_propertiesFile_singleton.LoginTest"></class>
+                    <class name="com.devbook.test.day16_POM2.BrowserUtilsTest"></class>
+                </classes>
+            </test>
+        </suite>
+        -->
+        <!--  How to run specific class    -->
+        <!--
+        <suite name="Devbook Automation" verbose="1">
+            <test name="smoke test">
+                <classes>
+                    <class name="com.devbook.test.day14_propertiesFile_singleton.LoginTest"></class>
+                </classes>
+            </test>
+        </suite>
+        -->
+        <!--  How to run all package    -->
+        <!--
+        <suite name="Devbook Automation" verbose="1">
+            <test name="smoke test">
+                <packages>
+                    <package name="com.devbook.test.*"></package>
+                </packages>
+            </test>
+        </suite>
+        -->
+        <!--  How to run more than one package    -->
+        <!--
+        <suite name="Devbook Automation" verbose="1">
+            <test name="smoke test">
+                <packages>
+                    <package name="com.devbook.test.day19_review_and_xmlRunner_and_staleElement"></package>
+                    <package name="com.devbook.test.day16_POM2"></package>
+                </packages>
+            </test>
+        </suite>
+         -->
+        <!--  How to run specific package  -->
+        <!--
+         <suite name="Devbook Automation" verbose="1">
+             <test name="smoke test">
+                   <packages>
+                       <package name="com.devbook.test.day19_review_and_xmlRunner_and_staleElement"></package>
+                   </packages>
+             </test>
+        </suite>
+        -->
