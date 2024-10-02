@@ -5,7 +5,9 @@ import ExerciseTestNG.Utilities.Driver;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.github.javafaker.Company;
 import com.github.javafaker.Country;
+import com.github.javafaker.Faker;
 import com.google.common.base.Verify;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -30,19 +32,39 @@ public class RegisterTest extends TestBase {
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button  */
+    Faker faker=new Faker();
 
    @Test
-    public void registerTest(){
+    public void registerTest() {
        driver.get(ConfigurationReader.get("url"));
        System.out.println(driver.getTitle());
-       String expectedTitle ="Automation Exercise";
-       String actalTitle =driver.getTitle();
-       Assert.assertEquals(expectedTitle,actalTitle,"Title verification failed");
-
-
-
+       String expectedTitle = "Automation Exercise";
+       String actalTitle = driver.getTitle();
+       Assert.assertEquals(expectedTitle, actalTitle, "Title verification passed");
    }
 
 
 
-}
+       @Test
+    public  void lgnBtn() throws InterruptedException {
+           driver.get(ConfigurationReader.get("url"));
+           driver.findElement(By.xpath("//a[text()=' Signup / Login']")).click();
+           driver.findElement(By.tagName("h2")).isDisplayed();
+           driver.findElement(By.xpath("//input[@data-qa='signup-name']")).sendKeys(faker.name().firstName());
+           driver.findElement(By.xpath("//input[@data-qa='signup-email']")).sendKeys(faker.internet().emailAddress());
+           driver.findElement(By.xpath("//button[@data-qa='signup-button']")).click();
+           Thread.sleep(3000);
+       }
+
+
+
+
+       }
+
+
+
+
+
+
+
+
