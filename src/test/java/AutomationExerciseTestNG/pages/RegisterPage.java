@@ -1,12 +1,16 @@
 package AutomationExerciseTestNG.pages;
 
+import AutomationExerciseTestNG.Utilities.BrowserUtils;
+import AutomationExerciseTestNG.Utilities.ConfigurationReader;
+import AutomationExerciseTestNG.Utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class RegisterPage extends BasePage {
 
-    LoginPage loginPage=new LoginPage();
+    LoginPage loginPage = new LoginPage();
 
     @FindBy(xpath = "//input[@data-qa='signup-name']")
     public WebElement nameBox;
@@ -14,7 +18,7 @@ public class RegisterPage extends BasePage {
     public WebElement emailBox;
     @FindBy(xpath = "(//button[@type='submit'])[2]")
     public WebElement signupButton;
-    @FindBy(xpath =" //div[@ class='radio-inline'][1]")
+    @FindBy(xpath = " //div[@ class='radio-inline'][1]")
     public WebElement maleRadioButton;
     @FindBy(xpath = "//input[@data-qa='password']")
     public WebElement passwordBox;
@@ -26,9 +30,9 @@ public class RegisterPage extends BasePage {
     public WebElement monthBox;
     @FindBy(id = "years")
     public WebElement yearBox;
-    @FindBy(xpath="//input [@name='newsletter']")
+    @FindBy(xpath = "//input [@name='newsletter']")
     public WebElement newsletterCheckBox;
-    @FindBy(id="optin")
+    @FindBy(id = "optin")
     public WebElement optinCheckBox;
     @FindBy(xpath = "//input[@id='first_name']")
     public WebElement firstNameBox;
@@ -60,10 +64,27 @@ public class RegisterPage extends BasePage {
     public WebElement loggedInAs;
     @FindBy(xpath = "//a[@href='/delete_account']")
     public WebElement deleteAccountButton;
+    @FindBy(xpath = "//a[text()=' Logged in as 'and @b='username']")
+    public WebElement loggedInAsBox;
+    @FindBy(xpath = "//a[text()='Logout']")
+    public WebElement logOutButton;
+    @FindBy(xpath = "//a[text()='Edit Account']")
+    public WebElement editAccountButton;
+    @FindBy(xpath = "//a[text()='Contact Us']")
+    public WebElement contactUsButton;
+    @FindBy(xpath = "//a[text()=' Logged in as:'] and //b[text()= '']")
+    public WebElement loggedInAsBox2;
 
 
+    public WebElement verifyLoggedInAsBox() {
+        BrowserUtils.waitForVisibility(loggedInAsBox, 2);
+        BrowserUtils.waitForClickablility(loggedInAsBox, 2);
+        System.out.println(loggedInAsBox.getText());
+        //Assert.assertTrue(loggedInAsBox.getText().contains(ConfigurationReader.get("username")));
 
 
+        return loggedInAsBox;
+    }
 
 
     public void register(String name, String email) {
@@ -73,5 +94,6 @@ public class RegisterPage extends BasePage {
         emailBox.sendKeys(email);
         signupButton.click();
 
+        }
     }
-}
+

@@ -3,14 +3,12 @@ package AutomationExerciseTestNG.Test;
 import AutomationExerciseTestNG.Utilities.BrowserUtils;
 import AutomationExerciseTestNG.pages.LoginPage;
 import AutomationExerciseTestNG.pages.RegisterPage;
-import AutomationExerciseTestNG.pages.homePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-import AutomationExerciseTestNG.Utilities.ConfigurationReader;
 import AutomationExerciseTestNG.Utilities.Driver;
 
 
@@ -33,6 +31,7 @@ public class RegisterTest extends TestBase {
 16. Verify that 'Logged in as username' is visible
 17. Click 'Delete Account' button
 18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button  */
+ LoginPage loginPage=new LoginPage();
 RegisterPage registerPage=new RegisterPage();
    @Test
     public void registerTest() {
@@ -77,13 +76,9 @@ RegisterPage registerPage=new RegisterPage();
     ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].scrollIntoView(true);", registerPage.continueButton);
     BrowserUtils.waitFor(3);
     registerPage.continueButton.click();
-   }
 
 
-
-
-
-
+       }
 
    }
 
